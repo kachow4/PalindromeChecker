@@ -14,15 +14,20 @@ public void setup()
     }
   }
 }
+
 public boolean palindrome(String word)
 {
     if(word.substring(0).equals(reverse(word)))
     {
       return true;
     }
+    else if(noSpaces(word.substring(0)).equals(noSpaces(word)))
+    {
+      return true;
+    }
   return false;
-  //return false;
 }
+
 public String reverse(String str)
 {
     String sNew = new String();
@@ -33,4 +38,29 @@ public String reverse(String str)
     return sNew;
 }
 
+public String noSpaces(String sWord)
+{
+  String a = new String();
+  for(int i = 0; i < sWord.length(); i++)
+  {
+    if(sWord.substring(i , i + 1).equals(" ") == false)
+    {
+      a = a + sWord.substring(i, i + 1);
+    }
+  }
+  return a;
+}
+
+public int numLetters(String sString)
+{
+  int a = 0;
+  for(int i = 0; i < sString.length(); i++)
+  {
+    if(Character.isLetter(sString.charAt(i)))
+    {
+      a++;
+    }
+  }
+  return a;
+}
 
