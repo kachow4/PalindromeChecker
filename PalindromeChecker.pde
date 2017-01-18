@@ -17,16 +17,17 @@ public void setup()
 
 public boolean palindrome(String word)
 {
-    if(word.substring(0).equals(reverse(word)))
+    if(word.equals(reverse(word)))
     {
       return true;
     }
-    else if(noSpaces(word.substring(0)).equals(noSpaces(word)))
+    else if(noSpaces(word).equals(noSpaces(reverse(word))))
     {
       return true;
     }
   return false;
 }
+
 
 public String reverse(String str)
 {
@@ -41,7 +42,7 @@ public String reverse(String str)
 public String noSpaces(String sWord)
 {
   String a = new String();
-  for(int i = 0; i < sWord.length(); i++)
+  for(int i = sWord.length()-1; i > 0; i--)
   {
     if(sWord.substring(i , i + 1).equals(" ") == false)
     {
