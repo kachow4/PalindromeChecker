@@ -17,14 +17,22 @@ public void setup()
 
 public boolean palindrome(String word)
 {
-    if(word.equals(reverse(word)))
+    String w = new String(word);
+    w = noSpaces(w);
+    w = noPunctuation(w);
+    w = noCapitals(w);
+    if(w.equals(reverse(w)) == true)
     {
       return true;
     }
-    else if(noSpaces(word).equals(noSpaces(reverse(word))))
+    /*if(word.equals(reverse(word)))
     {
       return true;
-    }
+    }*/
+    /*if(noCapitals(numLetters(word)).equals(noCapitals(numLetters(reverse(word)))))
+    {
+      return true;
+    }*/
   return false;
 }
 
@@ -42,7 +50,7 @@ public String reverse(String str)
 public String noSpaces(String sWord)
 {
   String a = new String();
-  for(int i = sWord.length()-1; i > 0; i--)
+  for(int i = 0; i < sWord.length(); i++)
   {
     if(sWord.substring(i , i + 1).equals(" ") == false)
     {
@@ -52,16 +60,19 @@ public String noSpaces(String sWord)
   return a;
 }
 
-public int numLetters(String sString)
+public String noPunctuation(String sString)
 {
-  int a = 0;
+  String a = new String();
   for(int i = 0; i < sString.length(); i++)
   {
     if(Character.isLetter(sString.charAt(i)))
     {
-      a++;
+      a = a + sString.charAt(i);
     }
   }
   return a;
 }
 
+public String noCapitals(String sWord){
+  return sWord.toLowerCase();
+}
